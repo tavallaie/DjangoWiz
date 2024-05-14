@@ -1,7 +1,14 @@
-from rest_framework import viewsets
-from ..models.{{ model_name.lower() }} import {{ model_name }}
-from ..serializers.{{ model_name.lower() }} import {{ model_name }}Serializer
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.permissions import IsAuthenticated
+from {{ app_name }}.models import {{ model_name }}
+from {{ app_name }}.serializers import {{ model_name }}Serializer
 
-class {{ model_name }}ViewSet(viewsets.ModelViewSet):
+class {{ model_name }}ListCreateAPIView(ListCreateAPIView):
     queryset = {{ model_name }}.objects.all()
     serializer_class = {{ model_name }}Serializer
+    permission_classes = [IsAuthenticated]
+
+class {{ model_name }}RetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
+    queryset = {{ model_name }}.objects.all()
+    serializer_class = {{ model_name }}Serializer
+    permission_classes = [IsAuthenticated]
