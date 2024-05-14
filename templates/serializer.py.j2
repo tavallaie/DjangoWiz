@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from ..models.{{ model_name.lower() }} import {{ model_name }}
+from {{ app_name }}.models import {{ model_name }}
 
 class {{ model_name }}Serializer(serializers.ModelSerializer):
     class Meta:
