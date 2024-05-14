@@ -1,0 +1,12 @@
+from rest_framework import routers
+from django.urls import path, include
+from .viewsets import *
+
+router = routers.DefaultRouter()
+{% for model_name in model_names %}
+router.register(r'{{ model_name.lower() }}', {{ model_name }}ViewSet)
+{% endfor %}
+
+urlpatterns = [
+    path('api/', include(router.urls)),
+]
