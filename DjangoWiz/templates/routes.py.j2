@@ -1,0 +1,9 @@
+from django.urls import path
+from {{ app_name }}.viewsets import *
+
+urlpatterns = [
+    {% for model_name in model_names %}
+    path('{{ model_name.lower() }}/', {{ model_name }}ListCreateAPIView.as_view(), name='{{ model_name.lower() }}-list-create'),
+    path('{{ model_name.lower() }}/<int:pk>/', {{ model_name }}RetrieveUpdateDestroyAPIView.as_view(), name='{{ model_name.lower() }}-detail'),
+    {% endfor %}
+]

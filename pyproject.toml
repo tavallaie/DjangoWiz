@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "djangowiz"
+version = "0.1.0"
+description = "DjangoWiz: A simple and powerful toolkit to automate the generation of serializers, viewsets, URLs, and Docker configurations for your Django projects."
+authors = ["Ali Tavallaie <a.tavallaie@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/tavallaie/DjangoWiz"
+repository = "https://github.com/tavallaie/DjangoWiz"
+keywords = ["django", "automation", "toolkit", "code-generation", "web-development"]
+
+
+[tool.poetry.dependencies]
+python = "^3.10"
+typer = {extras = ["all"], version = "^0.12.3"}
+jinja2 = "^3.1.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,6 @@
+from django.urls import path, include
+from {{ app_name }}.routes import router
+
+urlpatterns = [
+    path('api/', include(router.urls)),
+]
