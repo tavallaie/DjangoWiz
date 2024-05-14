@@ -25,7 +25,7 @@ class ProjectGenerator:
         self.app_name = app_name
         self.project_name = project_name
         self.model_names = model_names
-        self.env = Environment(loader=FileSystemLoader("templates"))
+        self.env = Environment(loader=FileSystemLoader("DjangoWiz/templates"))
 
     def write_file(self, file_path: str, content: str, overwrite: bool = False):
         if not overwrite and os.path.exists(file_path):
