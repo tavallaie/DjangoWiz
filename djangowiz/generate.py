@@ -3,20 +3,26 @@ import re
 import typer
 from jinja2 import Environment, FileSystemLoader
 from typing import List
+import ast
+
 
 app = typer.Typer()
 
 
 class ModelExtractor:
     @staticmethod
-    def extract_model_names(model_file: str) -> List[str]:
+    def extract_model_names(file_path: str) -> List[str]:
         model_names = []
-        with open(model_file, "r") as file:
-            content = file.read()
-        classes = re.findall(r"class\s+(\w+)\s*\(.*?\):", content)
-        for class_name in classes:
-            if re.search(rf"class\s+{class_name}\s*\(.*Model.*\):", content):
-                model_names.append(class_name)
+        with open(file_path, "r") as file:
+            tree = ast.parse(file.read(), filename=file_path)
+        for node in ast.walk(tree):
+            if isinstance(node, ast.ClassDef):
+                bases = [
+                    base.id if isinstance(base, ast.Name) else base.attr
+                    for base in node.bases
+                ]
+                if "Model" in bases or any(base for base in bases):
+                    model_names.append(node.name)
         return model_names
 
 
@@ -25,7 +31,11 @@ class ProjectGenerator:
         self.app_name = app_name
         self.project_name = project_name
         self.model_names = model_names
-        self.env = Environment(loader=FileSystemLoader("DjangoWiz/templates"))
+        self.env = Environment(
+            loader=FileSystemLoader(
+                os.path.join(os.path.dirname(__file__), "templates")
+            )
+        )
 
     def write_file(self, file_path: str, content: str, overwrite: bool = False):
         if not overwrite and os.path.exists(file_path):

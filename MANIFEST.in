@@ -1,0 +1,2 @@
+recursive-include djangowiz/templates *.j2
+
