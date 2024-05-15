@@ -1,0 +1,10 @@
+{% for model_name in model_names %}
+class {{ model_name }}ListCreateAPIView(generics.ListCreateAPIView):
+    queryset = {{ model_name }}.objects.all()
+    serializer_class = {{ model_name }}Serializer
+
+class {{ model_name }}RetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = {{ model_name }}.objects.all()
+    serializer_class = {{ model_name }}Serializer
+
+{% endfor %}

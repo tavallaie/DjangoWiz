@@ -10,7 +10,7 @@ repository = "https://github.com/tavallaie/DjangoWiz"
 keywords = ["django", "automation", "toolkit", "code-generation", "web-development"]
 
 [tool.poetry.scripts]
-djangowiz = "djangowiz.generate:app"
+djangowiz = "djangowiz.cli:app"
 
 [tool.poetry.dependencies]
 python = "^3.10"
