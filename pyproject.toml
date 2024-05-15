@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "djangowiz"
-version = "0.1.4"
+version = "0.2.1"
 description = "DjangoWiz: A simple and powerful toolkit to automate the generation of serializers, viewsets, URLs, and Docker configurations for your Django projects."
 authors = ["Ali Tavallaie <a.tavallaie@gmail.com>"]
 license = "MIT"
