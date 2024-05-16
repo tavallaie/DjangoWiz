@@ -6,7 +6,7 @@ First off, thank you for considering contributing to DjangoWiz! Your involvement
 
 ### Reporting Issues
 
-If you find a bug or have a question, please check the [existing issues](https://github.com/tavallie/DjangoWiz/issues) before submitting a new one. If your issue or question hasn't been addressed, feel free to [open a new issue](https://github.com/tavallie/DjangoWiz/issues/new). When reporting issues, please include:
+If you find a bug or have a question, please check the [existing issues](https://github.com/tavallaie/DjangoWiz/issues) before submitting a new one. If your issue or question hasn't been addressed, feel free to [open a new issue](https://github.com/tavallaie/DjangoWiz/issues/new). When reporting issues, please include:
 
 - A clear and descriptive title.
 - A detailed description of the problem.
@@ -15,7 +15,7 @@ If you find a bug or have a question, please check the [existing issues](https:/
 
 ### Suggesting Features
 
-We welcome feature suggestions! To suggest a new feature, please [open an issue](https://github.com/tavallie/DjangoWiz/issues/new) with the following information:
+We welcome feature suggestions! To suggest a new feature, please [open an issue](https://github.com/tavallaie/DjangoWiz/issues/new) with the following information:
 
 - A clear and descriptive title.
 - A detailed description of the proposed feature.
@@ -47,7 +47,7 @@ Please update the documentation as necessary to reflect any changes or new featu
 
 ## Community
 
-Join the discussion on our [GitHub Discussions](https://github.com/tavallie/DjangoWiz/discussions) page. Feel free to ask questions, share ideas, or provide feedback.
+Join the discussion on our [GitHub Discussions](https://github.com/tavallaie/DjangoWiz/discussions) page. Feel free to ask questions, share ideas, or provide feedback.
 
 Thank you for your contributions!  
 
