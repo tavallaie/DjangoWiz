@@ -1,6 +1,7 @@
 import os
 import importlib
 from typing import List, Dict, Any
+from jinja2 import Environment, FileSystemLoader, ChoiceLoader
 from djangowiz.core.io_handler import IOHandler
 from djangowiz.core.project_io_handler import ProjectIOHandler
 
@@ -51,6 +52,15 @@ class ProjectGenerator:
             self.generator_dir,
         )
 
+        self.env = Environment(
+            loader=ChoiceLoader(
+                [
+                    FileSystemLoader(self.template_dir),
+                    FileSystemLoader(self.default_template_dir),
+                ]
+            )
+        )
+
         self.load_generators(self.config_file)
 
     def load_generators(self, config_file: str):
@@ -68,19 +78,26 @@ class ProjectGenerator:
             else:
                 self.generators[name] = generator_config
 
-        for name, generator_config in self.generators.items():
+        # Use a copy of the dictionary to avoid runtime error
+        generators_copy = self.generators.copy()
+        for name, generator_config in generators_copy.items():
             for option, config in generator_config.get("options", {}).items():
                 self.load_generator(name, option, config)
 
     def load_generator(self, name: str, option: str, config: Dict[str, Any]):
         class_path = config["class"]
-        module_path, class_name = class_path.rsplit(".", 1)
-        if self.generator_dir not in module_path:
-            module_path = os.path.join(self.generator_dir, module_path)
-        module = importlib.import_module(module_path)
-        generator_class = getattr(module, class_name)
-        template_path = config.get("template", "")
+        module_name, class_name = class_path.rsplit(".", 1)
 
+        print(f"Attempting to load module: {module_name}, class: {class_name}")
+        try:
+            module = importlib.import_module(module_name)
+            generator_class = getattr(module, class_name)
+            print(f"Successfully loaded {class_path}")
+        except (ImportError, AttributeError) as e:
+            print(f"Error loading {class_path}: {e}")
+            return
+
+        template_path = config.get("template", "")
         if not os.path.exists(os.path.join(self.template_dir, template_path)):
             template_path = os.path.join(self.default_template_dir, template_path)
 
@@ -211,7 +228,11 @@ class ProjectGenerator:
             if generator_key in self.generators:
                 generator = self.generators[generator_key]["class"]
                 template = self.generators[generator_key]["template"]
-                generator.generate(overwrite=overwrite, template=template, **kwargs)
+                print(f"Generating {generator_key} using template {template}")
+                output = generator.generate(
+                    overwrite=overwrite, template=template, **kwargs
+                )
+                print(f"Generated output for {generator_key}: {output}")
 
     def export_config(self, export_path: str):
         self.io_handler.export_config(export_path)

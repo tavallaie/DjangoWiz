@@ -1,6 +1,8 @@
-import os
-from jinja2 import Environment, FileSystemLoader
+# djangowiz/core/base_generator.py
+
 from typing import List
+from jinja2 import Environment, FileSystemLoader
+import os
 
 
 class BaseGenerator:
@@ -20,6 +22,10 @@ class BaseGenerator:
 
     def generate(self, overwrite: bool = False, template: str = None, **kwargs):
         raise NotImplementedError("Subclasses must implement this method")
+
+    def render_template(self, template_name: str, context: dict) -> str:
+        template = self.env.get_template(template_name)
+        return template.render(context)
 
     def write_file(self, file_path: str, content: str, overwrite: bool = False):
         if not overwrite and os.path.exists(file_path):

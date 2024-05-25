@@ -1,0 +1,54 @@
+generators:
+  serializers:
+    options:
+      single:
+        class: repo.generators.serializer_generator.SerializerGenerator
+        template: single/serializers.py.j2
+      multi:
+        class: repo.generators.serializer_generator.SerializerGenerator
+        template: multi/serializers.py.j2
+  viewsets:
+    options:
+      single:
+        class: repo.generators.viewset_generator.ViewsetGenerator
+        template: single/viewsets.py.j2
+      multi:
+        class: repo.generators.viewset_generator.ViewsetGenerator
+        template: multi/viewsets.py.j2
+  # urls:
+  #   options:
+  #     single:
+  #       class: repo.generators.custom_generator.CustomGenerator
+  #       template: urls.py.j2
+  #     multi:
+  #       class: repo.generators.custom_generator.CustomGenerator
+  #       template: urls.py.j2
+  # # routes:
+  #   options:
+  #     single:
+  #       class: repo.generators.custom_generator.CustomGenerator
+  #       template: routes.py.j2
+  #     multi:
+  #       class: repo.generators.custom_generator.CustomGenerator
+  #       template: routes.py.j2
+  # dockerfile:
+  #   options:
+  #     default:
+  #       class: repo.generators.custom_generator.CustomGenerator
+  #       template: Dockerfile.j2
+  # docker_compose:
+  #   options:
+  #     dev:
+  #       class: repo.generators.custom_generator.CustomGenerator
+  #       template: docker-compose.dev.yml.j2
+  #     prod:
+  #       class: repo.generators.custom_generator.CustomGenerator
+  #       template: docker-compose.prod.yml.j2
+  # env_files:
+  #   options:
+  #     dev:
+  #       class: repo.generators.custom_generator.CustomGenerator
+  #       template: env.dev.j2
+  #     prod:
+  #       class: repo.generators.custom_generator.CustomGenerator
+  #       template: env.prod.j2

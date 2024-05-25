@@ -1,3 +1,6 @@
+from rest_framework import serializers
+from {{ app_name }}.models import {{ ', '.join(model_names) }}
+
 {% for model_name in model_names %}
 class {{ model_name }}Serializer(serializers.ModelSerializer):
     class Meta:
