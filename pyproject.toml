@@ -16,6 +16,7 @@ djangowiz = "djangowiz.cli:app"
 python = "^3.10"
 typer = {extras = ["all"], version = "^0.12.3"}
 jinja2 = "^3.1.4"
+pyyaml = "^6.0.1"
 
 
 [build-system]
