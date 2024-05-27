@@ -1,3 +1,5 @@
+# djangowiz/repo/generators.yaml
+
 generators:
   serializers:
     options:
@@ -15,40 +17,56 @@ generators:
       multi:
         class: djangowiz.repo.generators.viewset_generator.ViewsetGenerator
         template: multi/viewsets.py.j2
-  # urls:
-  #   options:
-  #     single:
-  #       class: repo.generators.custom_generator.CustomGenerator
-  #       template: urls.py.j2
-  #     multi:
-  #       class: repo.generators.custom_generator.CustomGenerator
-  #       template: urls.py.j2
-  # # routes:
-  #   options:
-  #     single:
-  #       class: repo.generators.custom_generator.CustomGenerator
-  #       template: routes.py.j2
-  #     multi:
-  #       class: repo.generators.custom_generator.CustomGenerator
-  #       template: routes.py.j2
-  # dockerfile:
-  #   options:
-  #     default:
-  #       class: repo.generators.custom_generator.CustomGenerator
-  #       template: Dockerfile.j2
-  # docker_compose:
-  #   options:
-  #     dev:
-  #       class: repo.generators.custom_generator.CustomGenerator
-  #       template: docker-compose.dev.yml.j2
-  #     prod:
-  #       class: repo.generators.custom_generator.CustomGenerator
-  #       template: docker-compose.prod.yml.j2
-  # env_files:
-  #   options:
-  #     dev:
-  #       class: repo.generators.custom_generator.CustomGenerator
-  #       template: env.dev.j2
-  #     prod:
-  #       class: repo.generators.custom_generator.CustomGenerator
-  #       template: env.prod.j2
+  admin:
+    options:
+      single:
+        class: djangowiz.repo.generators.admin_generator.AdminGenerator
+        template: single/admin.py.j2
+      multi:
+        class: djangowiz.repo.generators.admin_generator.AdminGenerator
+        template: multi/admin.py.j2
+  tests:
+    options:
+      single:
+        class: djangowiz.repo.generators.test_generator.TestGenerator
+        template: single/tests.py.j2
+      multi:
+        class: djangowiz.repo.generators.test_generator.TestGenerator
+        template: multi/tests.py.j2
+# urls:
+#   options:
+#     single:
+#       class: repo.generators.custom_generator.CustomGenerator
+#       template: urls.py.j2
+#     multi:
+#       class: repo.generators.custom_generator.CustomGenerator
+#       template: urls.py.j2
+# # routes:
+#   options:
+#     single:
+#       class: repo.generators.custom_generator.CustomGenerator
+#       template: routes.py.j2
+#     multi:
+#       class: repo.generators.custom_generator.CustomGenerator
+#       template: routes.py.j2
+# dockerfile:
+#   options:
+#     default:
+#       class: repo.generators.custom_generator.CustomGenerator
+#       template: Dockerfile.j2
+# docker_compose:
+#   options:
+#     dev:
+#       class: repo.generators.custom_generator.CustomGenerator
+#       template: docker-compose.dev.yml.j2
+#     prod:
+#       class: repo.generators.custom_generator.CustomGenerator
+#       template: docker-compose.prod.yml.j2
+# env_files:
+#   options:
+#     dev:
+#       class: repo.generators.custom_generator.CustomGenerator
+#       template: env.dev.j2
+#     prod:
+#       class: repo.generators.custom_generator.CustomGenerator
+#       template: env.prod.j2

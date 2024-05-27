@@ -1,4 +1,4 @@
-# djangowiz/app.py
+# djangowiz/cli.py
 
 import typer
 import os
@@ -37,7 +37,13 @@ def create_command_function(generator_name: str, options: Dict[str, Any]):
     ):
         model_names = ModelExtractor.extract_model_names(model_file)
         project_generator = ProjectGenerator(
-            app_name, project_name, model_names, template_dir, config_file, repo_dir
+            app_name,
+            project_name,
+            model_names,
+            template_dir,
+            config_file,
+            repo_dir,
+            model_file=model_file,
         )
         project_generator.generate([generator_name], option, overwrite)
 
@@ -67,7 +73,13 @@ def generate_files(
 ):
     model_names = ModelExtractor.extract_model_names(model_file)
     project_generator = ProjectGenerator(
-        app_name, project_name, model_names, template_dir, config_file, repo_dir
+        app_name,
+        project_name,
+        model_names,
+        template_dir,
+        config_file,
+        repo_dir,
+        model_file=model_file,
     )
     project_generator.generate(
         [

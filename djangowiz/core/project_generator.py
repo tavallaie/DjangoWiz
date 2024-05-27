@@ -17,10 +17,12 @@ class ProjectGenerator:
         template_dir: str = None,
         config_file: str = None,
         repo_dir: str = None,
+        model_file: str = None,
     ):
         self.app_name = app_name
         self.project_name = project_name
         self.model_names = model_names
+        self.model_file = model_file
         self.default_template_dir = os.path.join(
             os.path.dirname(__file__), "..", "repo", "templates"
         )
@@ -99,6 +101,7 @@ class ProjectGenerator:
                     self.project_name,
                     self.model_names,
                     self.template_dir,
+                    self.model_file,
                     **config,
                 ),
                 "template": template_path,

@@ -12,11 +12,13 @@ class BaseGenerator:
         project_name: str,
         model_names: List[str],
         template_dir: str,
+        model_file,
         **kwargs,
     ):
         self.app_name = app_name
         self.project_name = project_name
         self.model_names = model_names
+        self.model_file = model_file
         self.env = Environment(loader=FileSystemLoader(template_dir))
         self.options = kwargs
 
