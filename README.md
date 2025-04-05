@@ -40,7 +40,7 @@ DjangoWiz is a simple and powerful toolkit to automate the generation of seriali
 Generate serializers, viewsets, routes, URLs, Dockerfile, and Docker Compose configurations:
 
 ```bash
-djangowiz generate_files <your_app> <your_project> <path/to/models.py> --overwrite
+djangowiz generate-files <your_app> <your_project> <path/to/models.py> --overwrite
 ```
 
 ### Generate Core Files Only
@@ -48,7 +48,7 @@ djangowiz generate_files <your_app> <your_project> <path/to/models.py> --overwri
 Generate serializers, viewsets, and routes without Docker-related files:
 
 ```bash
-djangowiz generate_core_files <your_app> <your_project> <path/to/models.py> --overwrite
+djangowiz generate-core-files <your_app> <your_project> <path/to/models.py> --overwrite
 ```
 
 ### Generate Individual Components
@@ -56,25 +56,25 @@ djangowiz generate_core_files <your_app> <your_project> <path/to/models.py> --ov
 #### Generate Serializers
 
 ```bash
-djangowiz generate_serializers <your_app> <your_project> <path/to/models.py> --overwrite
+djangowiz generate-serializers <your_app> <your_project> <path/to/models.py> --overwrite
 ```
 
 #### Generate Viewsets
 
 ```bash
-djangowiz generate_viewsets <your_app> <your_project> <path/to/models.py> --overwrite
+djangowiz generate-viewsets <your_app> <your_project> <path/to/models.py> --overwrite
 ```
 
 #### Generate URLs
 
 ```bash
-djangowiz generate_urls <your_app> <your_project> <path/to/models.py> --overwrite
+djangowiz generate-urls <your_app> <your_project> <path/to/models.py> --overwrite
 ```
 
 #### Generate Routes
 
 ```bash
-djangowiz generate_routes <your_app> <your_project> <path/to/models.py> --overwrite
+djangowiz generate-routes <your_app> <your_project> <path/to/models.py> --overwrite
 ```
 
 ### Using Custom Templates
@@ -82,7 +82,7 @@ djangowiz generate_routes <your_app> <your_project> <path/to/models.py> --overwr
 You can specify a custom template directory with the `--template-dir` option. If a custom template is not provided, the default templates will be used.
 
 ```bash
-djangowiz generate_files <your_app> <your_project> <path/to/models.py> --overwrite --template-dir path/to/custom_templates
+djangowiz generate-files <your_app> <your_project> <path/to/models.py> --overwrite --template-dir path/to/custom_templates
 ```
 
 ### Using Single File Mode
@@ -90,7 +90,7 @@ djangowiz generate_files <your_app> <your_project> <path/to/models.py> --overwri
 You can generate all serializers and viewsets in a single file using the `--single-file` option.
 
 ```bash
-djangowiz generate_files <your_app> <your_project> <path/to/models.py> --overwrite --single-file
+djangowiz generate-files <your_app> <your_project> <path/to/models.py> --overwrite --single-file
 ```
 
 ### Using as a Python Library
